@@ -28,5 +28,11 @@ public class Vehicle {
     return vehicleType;
   }
 
+  @Override
+  public String toString() {
+    return registrationNumber +
+            " (" + vehicleType + ")" +
+            " Owner: " + ownerName;
+  }
 
 }

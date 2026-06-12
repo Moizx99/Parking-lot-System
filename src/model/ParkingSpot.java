@@ -11,7 +11,6 @@ public class ParkingSpot {
     this.spotNumber = spotNumber;
     this.spotType = spotType;
     this.occupied = false;
-    this.parkedVehicle = parkedVehicle;
   }
 
   public int getSpotNumber() {
@@ -28,5 +27,41 @@ public class ParkingSpot {
 
   public Vehicle getParkedVehicle() {
     return parkedVehicle;
+  }
+
+  public void parkVehicle(Vehicle vehicle) {
+
+    if (occupied) {
+      throw new IllegalStateException("Parking spot is already occupied.");
+    }
+
+    if (vehicle.getVehicleType() != spotType) {
+      throw new IllegalStateException(
+              "Vehicle type does not match parking spot type."
+      );
+    }
+
+    occupied = true;
+    parkedVehicle = vehicle;
+
+  }
+
+  public void removeVehicle() {
+
+    if (!occupied) {
+      throw new IllegalStateException("Parking spot is already empty.");
+    }
+
+    occupied = false;
+    parkedVehicle = null;
+
+  }
+
+
+  @Override
+  public String toString() {
+    return "Spot Number: " + spotNumber +
+            ", Type: " + spotType +
+            ", Occupied: " + occupied;
   }
 }
