@@ -67,4 +67,27 @@ public class ParkingLot {
   }
 
 
+  public void removeVehicle(String registrationNumber) {
+
+    for (ParkingSpot spot : parkingSpots) {
+
+      if (spot.isOccupied()) {
+
+        Vehicle vehicle = spot.getParkedVehicle();
+
+        if (vehicle.getRegistrationNumber()
+                .equals(registrationNumber)) {
+
+          spot.removeVehicle();
+          return;
+        }
+      }
+    }
+
+    throw new IllegalArgumentException(
+            "Vehicle not found: " + registrationNumber
+    );
+  }
+
+
 }

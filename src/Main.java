@@ -28,6 +28,7 @@ public class Main {
     parkingLot.parkVehicle(car);
     parkingLot.parkVehicle(secondCar);
 
+    parkingLot.removeVehicle("ABC-123");
 
     for (ParkingSpot spot : parkingLot.getParkingSpots()) {
       System.out.println(spot);
