@@ -6,12 +6,7 @@ import model.VehicleType;
 public class Main {
   public static void main(String[] args) {
 
-    ParkingLot parkingLot = new ParkingLot(4,6, 5);
-
-    for (ParkingSpot spot : parkingLot.getParkingSpots()){
-      System.out.println(spot);
-    }
-
+    ParkingLot parkingLot = new ParkingLot(4, 6, 5);
 
     Vehicle car = new Vehicle(
             "ABC-123",
@@ -29,6 +24,14 @@ public class Main {
     parkingLot.parkVehicle(secondCar);
 
     parkingLot.removeVehicle("ABC-123");
+
+    ParkingSpot foundSpot =
+            parkingLot.findVehicleSpot("XYZ-999");
+
+    System.out.println("Vehicle found at:");
+    System.out.println(foundSpot);
+
+    System.out.println("\nAll parking spots:");
 
     for (ParkingSpot spot : parkingLot.getParkingSpots()) {
       System.out.println(spot);

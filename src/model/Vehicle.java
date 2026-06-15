@@ -2,9 +2,9 @@ package model;
 
 public class Vehicle {
 
-  private String registrationNumber;                    // Registration Number: ABC-123
-  private String ownerName;                             // John
-  private VehicleType vehicleType;                      // Car
+  private final String registrationNumber;
+  private final String ownerName;
+  private final VehicleType vehicleType;
 
 
   public Vehicle(String registrationNumber,

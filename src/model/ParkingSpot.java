@@ -32,7 +32,7 @@ public class ParkingSpot {
   public void parkVehicle(Vehicle vehicle) {
 
     if (occupied) {
-      throw new IllegalArgumentException("Parking spot is already occupied.");
+      throw new IllegalStateException("Parking spot is already occupied.");
     }
 
     if (vehicle.getVehicleType() != spotType) {
