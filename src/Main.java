@@ -62,5 +62,21 @@ public class Main {
       System.out.println(spot);
     }
 
+
+    Vehicle car1 = new Vehicle(
+            "ABC-123",
+            "John",
+            VehicleType.CAR
+    );
+
+    Vehicle duplicateCar = new Vehicle(
+            "ABC-123",
+            "Mike",
+            VehicleType.CAR
+    );
+
+    parkingLot.parkVehicle(car1);
+    parkingLot.parkVehicle(duplicateCar);
+
   }
 }

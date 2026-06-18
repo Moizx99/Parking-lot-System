@@ -50,6 +50,15 @@ public class ParkingLot {
 
   public void parkVehicle(Vehicle vehicle) {
 
+    if (isVehicleAlreadyParked(
+            vehicle.getRegistrationNumber())) {
+
+      throw new IllegalArgumentException(
+              "Vehicle is already parked: "
+                      + vehicle.getRegistrationNumber()
+      );
+    }
+
     for (ParkingSpot spot : parkingSpots) {
 
       if (spot.getSpotType() == vehicle.getVehicleType()
@@ -65,7 +74,6 @@ public class ParkingLot {
                     + vehicle.getVehicleType()
     );
   }
-
 
   public void removeVehicle(String registrationNumber) {
 
@@ -88,7 +96,6 @@ public class ParkingLot {
             "Vehicle not found: " + registrationNumber
     );
   }
-
 
   public ParkingSpot findVehicleSpot(String registrationNumber) {
 
@@ -125,6 +132,25 @@ public class ParkingLot {
     }
 
     return count;
+  }
+
+  private boolean isVehicleAlreadyParked(String registrationNumber) {
+
+    for (ParkingSpot spot : parkingSpots) {
+
+      if (spot.isOccupied()) {
+
+        Vehicle parkedVehicle = spot.getParkedVehicle();
+
+        if (parkedVehicle.getRegistrationNumber()
+                .equals(registrationNumber)) {
+
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
 }

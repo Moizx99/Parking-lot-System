@@ -43,7 +43,6 @@ public class ParkingSpot {
 
     occupied = true;
     parkedVehicle = vehicle;
-
   }
 
   public void removeVehicle() {
