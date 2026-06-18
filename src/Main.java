@@ -20,18 +20,43 @@ public class Main {
             VehicleType.CAR
     );
 
+    // Park vehicles
     parkingLot.parkVehicle(car);
     parkingLot.parkVehicle(secondCar);
 
+    // Remove first vehicle
     parkingLot.removeVehicle("ABC-123");
 
+    // Find second vehicle
     ParkingSpot foundSpot =
             parkingLot.findVehicleSpot("XYZ-999");
 
+    System.out.println("=== VEHICLE LOOKUP TEST ===");
     System.out.println("Vehicle found at:");
     System.out.println(foundSpot);
 
-    System.out.println("\nAll parking spots:");
+    System.out.println();
+
+    System.out.println("=== AVAILABLE SPOTS TEST ===");
+
+    System.out.println(
+            "Available CAR spots: "
+                    + parkingLot.getAvailableSpots(VehicleType.CAR)
+    );
+
+    System.out.println(
+            "Available MOTORCYCLE spots: "
+                    + parkingLot.getAvailableSpots(VehicleType.MOTORCYCLE)
+    );
+
+    System.out.println(
+            "Available TRUCK spots: "
+                    + parkingLot.getAvailableSpots(VehicleType.TRUCK)
+    );
+
+    System.out.println();
+
+    System.out.println("=== ALL PARKING SPOTS ===");
 
     for (ParkingSpot spot : parkingLot.getParkingSpots()) {
       System.out.println(spot);

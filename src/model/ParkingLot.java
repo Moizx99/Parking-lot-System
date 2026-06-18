@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParkingLot {
 
-  private List<ParkingSpot> parkingSpots;
+  private final List<ParkingSpot> parkingSpots;
 
   public ParkingLot(int carSpots,
                     int motorcycleSpots,
@@ -109,6 +109,22 @@ public class ParkingLot {
     throw new IllegalArgumentException(
             "Vehicle not found: " + registrationNumber
     );
+  }
+
+  public int getAvailableSpots(VehicleType vehicleType) {
+
+    int count = 0;
+
+    for (ParkingSpot spot : parkingSpots) {
+
+      if (spot.getSpotType() == vehicleType
+              && !spot.isOccupied()) {
+
+        count++;
+      }
+    }
+
+    return count;
   }
 
 }
