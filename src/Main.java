@@ -62,21 +62,13 @@ public class Main {
       System.out.println(spot);
     }
 
+    System.out.println();
 
-    Vehicle car1 = new Vehicle(
-            "ABC-123",
-            "John",
-            VehicleType.CAR
-    );
+    System.out.println("=== OCCUPIED SPOTS TEST ===");
 
-    Vehicle duplicateCar = new Vehicle(
-            "ABC-123",
-            "Mike",
-            VehicleType.CAR
-    );
-
-    parkingLot.parkVehicle(car1);
-    parkingLot.parkVehicle(duplicateCar);
+    for (ParkingSpot spot : parkingLot.getOccupiedSpots()) {
+      System.out.println(spot);
+    }
 
   }
 }

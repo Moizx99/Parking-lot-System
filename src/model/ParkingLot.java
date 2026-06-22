@@ -153,4 +153,16 @@ public class ParkingLot {
     return false;
   }
 
+  public List<ParkingSpot> getOccupiedSpots() {
+
+    List<ParkingSpot> occupiedSpots = new ArrayList<>();
+
+    for (ParkingSpot spot : parkingSpots) {
+      if (spot.isOccupied()) {
+        occupiedSpots.add(spot);
+      }
+    }
+    return occupiedSpots;
+  }
+
 }
